@@ -51,38 +51,51 @@ const choiceIsValid = (choice) => { return (choice === SCISSORS || choice === RO
 
 const game = () => {
     console.log("Let's play Jo Ken Po ! \n");
-    let computerSelection, playerSelection, validChoice;
+    let computerSelection, playerSelection, validChoice, quit;
 
     computerWins = 0,
     playerWins = 0;
+    quit = false;
 
     for(let i = 1; i <= 5; i++){
         console.log(`                  ROUND ${i} \n`);
 
         validChoice = false;
-        playerSelection = String(window.prompt("Choose your fighter")).toLowerCase();
+        playerSelection = String(window.prompt("Choose your fighter                            (or type 'q' to quit)")).toLowerCase();
         while(!validChoice){
+            if(playerSelection==='q'){
+                quit = true;
+                break;
+            }
             if(!choiceIsValid(playerSelection)){
                 console.log(`\'${playerSelection}\' is not a valid choice. Choose between rock, scissors and paper only.`);
-                playerSelection = String(window.prompt("Choose your fighter")).toLowerCase();
+                playerSelection = String(window.prompt("Choose your fighter                            (or type 'q' to quit)")).toLowerCase();
             }else{
                 validChoice = true;
             }
+        }
+        if(quit){
+            break;
         }
         computerSelection = computerPlay();
 
         console.log(`Your choice: ${playerSelection} \nComputer's choice: ${computerSelection}\n\n${playRound(playerSelection,computerSelection)}`);
     }
-    console.log("---------------- GAME OVER -------------------");
-    var finalMessage = "";
-    if(computerWins > playerWins){
-        finalMessage+= `YOU LOSE!\n \nComputer (${computerWins}) x You (${playerWins})  (${5-playerWins-computerWins} ties)`;
-    }else if(playerWins > computerWins){
-        finalMessage+=`YOU WIN!\n \nYou (${playerWins}) x Computer (${computerWins})  (${5-playerWins-computerWins} ties)`;
+    if(quit){
+        console.log("---------------- GAME OVER -------------------");
+        console.log(`            YOU QUIT! WHAT A LOSER!`)
     }else{
-        finalMessage+=`IT WAS A TIE!\n \nYou (${playerWins}) x Computer (${computerWins})  (${5-playerWins-computerWins} ties)`;
+        console.log("---------------- GAME OVER -------------------");
+        var finalMessage = "";
+        if(computerWins > playerWins){
+            finalMessage+= `YOU LOSE!\n \nComputer (${computerWins}) x You (${playerWins})  (${5-playerWins-computerWins} ties)`;
+        }else if(playerWins > computerWins){
+            finalMessage+=`YOU WIN!\n \nYou (${playerWins}) x Computer (${computerWins})  (${5-playerWins-computerWins} ties)`;
+        }else{
+            finalMessage+=`IT WAS A TIE!\n \nYou (${playerWins}) x Computer (${computerWins})  (${5-playerWins-computerWins} ties)`;
+        }
+        finalMessage+="\n \n            Thanks for playing!";
+    
+        console.log(finalMessage);
     }
-    finalMessage+="\n \n            Thanks for playing!";
-
-    console.log(finalMessage);
 }
