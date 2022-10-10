@@ -71,18 +71,18 @@ const game = () => {
         }
         computerSelection = computerPlay();
 
-        console.log(`Your choice: ${playerSelection}`);
-        console.log(`Computer's choice: ${computerSelection}`);
-        console.log(playRound(playerSelection,computerSelection));
+        console.log(`Your choice: ${playerSelection} \nComputer's choice: ${computerSelection}\n\n${playRound(playerSelection,computerSelection)}`);
     }
-
-    console.log("---------------- GAME OVER ------------------- \n \n")
+    console.log("---------------- GAME OVER -------------------");
+    var finalMessage = "";
     if(computerWins > playerWins){
-        console.log(`The machine won the game!\n Computer (${computerWins}) - You (${playerWins})`)
+        finalMessage+= `YOU LOSE!\n \nComputer (${computerWins}) x You (${playerWins})  (${5-playerWins-computerWins} ties)`;
     }else if(playerWins > computerWins){
-        console.log(`You won the game!\n You (${playerWins}) - Computer (${computerWins})`)
+        finalMessage+=`YOU WIN!\n \nYou (${playerWins}) x Computer (${computerWins})  (${5-playerWins-computerWins} ties)`;
     }else{
-        console.log(`It was a tie!\n You (${playerWins}) - Computer (${computerWins})`)
+        finalMessage+=`IT WAS A TIE!\n \nYou (${playerWins}) x Computer (${computerWins})  (${5-playerWins-computerWins} ties)`;
     }
-    console.log("\n \n                   Thanks for playing!")
+    finalMessage+="\n \n            Thanks for playing!";
+
+    console.log(finalMessage);
 }
