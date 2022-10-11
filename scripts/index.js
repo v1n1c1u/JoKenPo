@@ -2,6 +2,17 @@ const SCISSORS = "scissors",
       ROCK = "rock",
       PAPER = "paper";
 
+const rules ="            Let's play Jo Ken Po ! \n \n"+
+                "These are the rules: \n"+
+                "   - There are 5 rounds\n"+
+                "   - You have to choose between rock, paper and scissors each round\n"+
+                "   - You will play against the computer \n"+
+                "   - Paper beats rock\n"+
+                "   - Rock beats scissors\n"+
+                "   - Scissors beats paper\n \n";
+
+var promptMessage = "Choose your fighter                            (or type 'q' to quit)";
+
 var computerWins = 0,
     playerWins = 0;
 
@@ -9,13 +20,13 @@ const computerPlay = () => {
     let num = Math.floor(Math.random()*3)+1;
     switch(num){
         case 1:
-            return "rock"
+            return ROCK;
         case 2:
-            return "scissors"
+            return SCISSORS;
         case 3:
-            return "paper"
+            return PAPER;
         default:
-            return "apache helicopter"
+            return "apache helicopter";
     }
 }
 
@@ -56,7 +67,7 @@ const playRound = (playerSelection, computerSelection) => {
 const choiceIsValid = (choice) => { return (choice === SCISSORS || choice === ROCK || choice === PAPER) }
 
 const game = () => {
-    console.log("Let's play Jo Ken Po ! \n");
+    console.log(rules);
 
     let computerSelection, playerSelection, validChoice, quit;
     computerWins = 0,
@@ -67,7 +78,7 @@ const game = () => {
         console.log(`                  ROUND ${i} \n`);
 
         validChoice = false;
-        playerSelection = String(window.prompt("Choose your fighter                            (or type 'q' to quit)")).toLowerCase();
+        playerSelection = String(window.prompt(promptMessage)).toLowerCase();
         while(!validChoice){
             if(playerSelection==='q'){
                 quit = true;
@@ -75,7 +86,7 @@ const game = () => {
             }
             if(!choiceIsValid(playerSelection)){
                 console.log(`\'${playerSelection}\' is not a valid choice. Choose between rock, scissors and paper only.`);
-                playerSelection = String(window.prompt("Choose your fighter                            (or type 'q' to quit)")).toLowerCase();
+                playerSelection = String(window.prompt(promptMessage)).toLowerCase();
             }else{
                 validChoice = true;
             }
@@ -100,7 +111,7 @@ const game = () => {
         }else{
             finalMessage+=`IT WAS A TIE!\n \nYou (${playerWins}) x Computer (${computerWins})  (${ties} ties)`;
         }
-        finalMessage+="\n \n            Thanks for playing!";
+        finalMessage+="\n \n              Thanks for playing!";
     
         console.log(finalMessage);
     }
