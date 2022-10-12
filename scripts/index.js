@@ -70,7 +70,7 @@ const game = () => {
     let computerSelection,
         playerSelection, 
         validChoice,
-        quit = false;
+        quit;
 
     computerWins = 0,
     playerWins = 0;
@@ -88,7 +88,7 @@ const game = () => {
                 break;
             }
             if(!choiceIsValid(playerSelection)){
-                console.log(`\'${playerSelection}\' is not a valid choice. Choose between rock, scissors and paper only.`);
+                console.log(`\'${playerSelection}\' is not a valid choice.`);
                 playerSelection = String(window.prompt(PROMPT_MESSAGE)).toLowerCase();
             }else{
                 validChoice = true;
@@ -99,7 +99,9 @@ const game = () => {
         }
         computerSelection = computerPlay();
 
-        console.log(`Your choice: ${playerSelection} \nComputer's choice: ${computerSelection}\n\n${playRound(playerSelection,computerSelection)}`);
+        console.log(`Your choice: ${playerSelection}\n`+
+                    `Computer's choice: ${computerSelection}\n\n`+
+                    `${playRound(playerSelection,computerSelection)}`);
     }
     console.log("---------------- GAME OVER -------------------");
     if(quit){
@@ -108,11 +110,11 @@ const game = () => {
         var finalMessage = "";
         const ties = 5-playerWins-computerWins;
         if(computerWins > playerWins){
-            finalMessage+= `YOU LOSE!\n \nComputer (${computerWins}) x You (${playerWins})  (${ties} ties)`;
+            finalMessage+= `YOU LOSE!\n \nComputer (${computerWins}) x You (${playerWins})     (${ties} ties)`;
         }else if(playerWins > computerWins){
-            finalMessage+=`YOU WIN!\n \nYou (${playerWins}) x Computer (${computerWins})  (${ties} ties)`;
+            finalMessage+=`YOU WIN!\n \nYou (${playerWins}) x Computer (${computerWins})     (${ties} ties)`;
         }else{
-            finalMessage+=`IT WAS A TIE!\n \nYou (${playerWins}) x Computer (${computerWins})  (${ties} ties)`;
+            finalMessage+=`IT WAS A TIE!\n \nYou (${playerWins}) x Computer (${computerWins})     (${ties} ties)`;
         }
         finalMessage+="\n \n              Thanks for playing!";
     
