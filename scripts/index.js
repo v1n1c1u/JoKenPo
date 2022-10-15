@@ -11,7 +11,7 @@ const SCISSORS = "scissors",
                 "   - Rock beats scissors\n"+
                 "   - Scissors beats paper";
       
-var computerWins = 0,
+let computerWins = 0,
     playerWins = 0;
 
 const computerPlay = () => {
@@ -80,7 +80,7 @@ const game = () => {
         console.log(`                  ROUND ${i} \n`);
 
         validChoice = false;
-        playerSelection = String(window.prompt(PROMPT_MESSAGE)).toLowerCase();
+        playerSelection = String(prompt(PROMPT_MESSAGE)).toLowerCase();
         
         while(!validChoice){
             if(playerSelection === 'q'){
@@ -89,7 +89,7 @@ const game = () => {
             }
             if(!choiceIsValid(playerSelection)){
                 console.log(`\'${playerSelection}\' is not a valid choice.`);
-                playerSelection = String(window.prompt(PROMPT_MESSAGE)).toLowerCase();
+                playerSelection = String(prompt(PROMPT_MESSAGE)).toLowerCase();
             }else{
                 validChoice = true;
             }
@@ -107,7 +107,7 @@ const game = () => {
     if(quit){
         console.log(`            YOU QUIT! WHAT A LOSER!`)
     }else{
-        var finalMessage = "";
+        let finalMessage = "";
         const ties = 5-playerWins-computerWins;
         if(computerWins > playerWins){
             finalMessage+= `YOU LOSE!\n \nComputer (${computerWins}) x You (${playerWins})     (${ties} ties)`;
