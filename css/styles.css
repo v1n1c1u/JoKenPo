@@ -1,7 +1,168 @@
+@font-face {
+  font-family: "Arcade Classic";
+  src: url("fonts/arcade_classic_2/ARCADECLASSIC.TTF");
+}
 * {
   box-sizing: border-box;
 }
+html, body {height: 100% !important;}
 body {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(150, 224, 115);
+  font-family: "Arcade Classic";
+}
+header {
+  display: none;/*flex;*/
+  justify-content:space-between;
+  height: 80px;
+}
+#header-text{
+  color: green;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 32px;
+}
+#result {
+  position:relative;
+}
+nav{
+  display: flex;
+  justify-content: center;
+}
+main {
+  display: block;
+  text-align: center;
+  height: auto;
+  margin:auto;
+}
+#gameboard {
+  width: 1000px;
+  min-width:fit-content;
+  display: block;
+  align-items: center;
+  flex-wrap: wrap;
+  border-style: solid;
+  border-radius: 10px 10px 10px 10px;
+  border-width: 2px;
+  border-color: rgb(101, 151, 78);
+  margin: 2em auto 2em auto;
+}
+#game-options{
+  display: none; /*flex;*/
+  justify-content: space-between;
+  border-bottom-style: solid;
+  border-color: inherit;
+  border-width: inherit;
+  background-color: rgb(126, 187, 98);
+  border-radius: 5px 5px 0px 0px;
+  height: 50px;
+  padding: 10px 15px 10px 15px;
+}
+ul {
+  margin:0%;
+  display:flex;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.options-div .figures-div{
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.options-div h2{
+  text-align: center;
+  color:darkolivegreen;
+  font-size: 32px;
+}
+#result-div{
+  min-height: 80px;
+  font-size: 65px;
+  color:rgb(63, 80, 35);
+}
+
+#player-choices-div .figures-div{
+  margin-top:50px;
+}
+#computer-choice-div .figures-div{
+  margin-bottom: 50px;
+}
+@keyframes moveUp {
+  0%   {bottom:0px;}
+  10% {bottom:50px;}
+  100%{bottom:50x;}
+}
+@keyframes moveDown {
+  0%   {top:0px;}
+  10% {top:50px;}
+  100%{top:50x;}
+  
+}
+.computerChoiceAnimated {
+  position: relative;
+  -webkit-animation: moveDown 5s 1  normal ease-out;
+  animation-name: moveDown;
+  animation-duration: 5s;
+}
+.playerChoiceAnimated {
+  position: relative;
+  -webkit-animation: moveUp 5s 1  normal ease-out;
+  animation-name: moveUp;
+  animation-duration: 5s;
+}
+figure{
+  width: 160px;
+  color:green;
+  text-align: center;
+}
+figcaption{
+  display: none;
+  margin:5px;
+  font-size: large;
+  text-transform: uppercase;
+}
+figure img {
+  width: 110px;
+  opacity: 0.5;
+}
+#player-choices-div img{
+  transform: rotate(180deg);
+}
+#player-choices-div img:hover {
+  cursor:pointer;
+  width: 115px;
+  opacity: 1;
+}
+.score-span{
+  color:darkolivegreen;
+  font-weight: bold;
+  align-content: center;
+  text-align: center;
+}
+
+#player-choices-div img:hover + figcaption{
+  display: block;
+}
+.game-buttons{
+  width:100px;
+  border-width: 1px;
+  border-radius: 5px 5px 5px 5px;
+}
+#restart-button{
+  color:white;
+  background-color: green;
+  border-color: darkolivegreen;
+}
+#quit-button{
+  background-color:crimson;
+  color: white;
+}
+#round-text{
+  text-transform: uppercase;
+  font-weight: bold;
+  color:darkgreen;
+  font-size: 24px;
 }

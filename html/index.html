@@ -5,18 +5,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" type = "text/css" href = "../css/styles.css">
-    <script src="../scripts/index.js" defer></script>
+    <script src="../scripts/game.js" defer></script>
     <title>Jo Ken Po</title>
 </head>
 <body>
     <header>
-
+        <span id="header-text">JoKenPo</span>
+        <nav>
+            <ul>
+                <li>
+                    <button>
+                        Rules
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        Source
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        About
+                    </button>
+                </li>
+            </ul>
+        </nav>
     </header>
-
     <main>
-        
-    </main>
+        <section id="gameboard">
+            <div id="game-options">
+                <button class="game-buttons" id="restart-button">Restart</button>
+                <span class="score-span">You (0)</span>
+                <span id="round-text">Round 1</span>
+                <span class="score-span">Machine (0)</span>
+                <button class="game-buttons" id="quit-button">Quit</button>
+            </div>
+            <div class="options-div" id="computer-choices-div">
+                <h2>Machine</h2>
+                <div class="figures-div">
+                    <figure class="choice" id="computer-choice-paper">
+                        <img src="../css/imgs/paper_emoji.png"/>
+                    </figure>
     
+                    <figure class="choice" id="computer-choice-rock">
+                        <img src="../css/imgs/rock_emoji.png"/>
+                    </figure>
+    
+                    <figure class="choice" id="computer-choice-scissors">
+                        <img src="../css/imgs/scissors_emoji.png"/>
+                    </figure>
+                </div>
+            </div>
+            <div id="result-div">
+                <span id="result"></span>
+            </div>
+            <div class="options-div" id="player-choices-div">
+                <div class="figures-div">
+                    <figure class="choice" id="player-choice-paper">
+                        <img src="../css/imgs/paper_emoji.png"/>
+                        <figcaption>Paper</figcaption>
+                    </figure>
+    
+                    <figure class="choice" id="player-choice-rock">
+                        <img src="../css/imgs/rock_emoji.png"/>
+                        <figcaption>Rock</figcaption>
+                    </figure>
+    
+                    <figure class="choice" id="player-choice-scissors">
+                        <img src="../css/imgs/scissors_emoji.png"/>
+                        <figcaption>Scissors</figcaption>
+                    </figure>
+                </div>
+                <h2>You</h2>
+            </div>    
+        </section> 
+    </main>
     <footer>
         
     </footer>
