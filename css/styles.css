@@ -13,15 +13,45 @@ body {
   font-family: "Arcade Classic";
 }
 header {
-  display: none;/*flex;*/
-  justify-content:space-between;
-  height: 80px;
+  display: flex;
+  justify-content:space-around;
+  background-color: rgb(131, 196, 101);
+  padding: 1em 0 1em 0;
+  height: 70px;
+}
+#about {
+  background-color: rgb(180, 202, 142);
+  padding: 2em 6em 1em 6em;
+  min-height: 600px;
+}
+h2 {
+  color:green;
+  font-size: 48px;
+  text-align: left;
+  margin: 10px 0 10px 0;
+}
+code {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px 5px 5px 5px;
+  padding: 5px;
+  background-color: rgb(193, 214, 157);
+  border-color: rgb(201, 243, 127);
+}
+hr {
+  border-color: rgb(201, 243, 127);
+}
+p {
+  color: darkgreen;
+  text-align: justify;
+  font-size: 28px;
+  padding: 2em 6em 2em 6em;
+  font-family: 'Courier New', Courier, monospace;
 }
 #header-text{
   color: green;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
-  font-size: 32px;
+  font-size: 48px;
 }
 #result {
   position:relative;
@@ -46,10 +76,10 @@ main {
   border-radius: 10px 10px 10px 10px;
   border-width: 2px;
   border-color: rgb(101, 151, 78);
-  margin: 2em auto 2em auto;
+  margin: 120px auto 120px auto;
 }
 #game-options{
-  display: none; /*flex;*/
+  display: none; /*none;*/
   justify-content: space-between;
   border-bottom-style: solid;
   border-color: inherit;
@@ -59,11 +89,26 @@ main {
   height: 50px;
   padding: 10px 15px 10px 15px;
 }
+
 ul {
   margin:0%;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 300px;
   display:flex;
   list-style: none;
-  justify-content: space-between;
+  justify-content:space-around;
+  text-transform: uppercase;
+}
+li {
+  margin: auto;
+}
+li a {
+  text-decoration: none;
+  color:whitesmoke;
+  font-weight: lighter;
+}
+li a:hover {
+  text-decoration:underline;
 }
 
 .options-div .figures-div{
@@ -128,23 +173,23 @@ figure img {
   width: 110px;
   opacity: 0.5;
 }
-#player-choices-div img{
-  transform: rotate(180deg);
+.player-choice img{
+  transform: rotate(180deg) !important;
 }
-#player-choices-div img:hover {
+.player-choice img:hover {
   cursor:pointer;
   width: 115px;
   opacity: 1;
+}
+
+.player-choice img:hover + figcaption{
+  display: block;
 }
 .score-span{
   color:darkolivegreen;
   font-weight: bold;
   align-content: center;
   text-align: center;
-}
-
-#player-choices-div img:hover + figcaption{
-  display: block;
 }
 .game-buttons{
   width:100px;
@@ -165,4 +210,38 @@ figure img {
   font-weight: bold;
   color:darkgreen;
   font-size: 24px;
+}
+footer{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: lighter;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 0%;
+  margin-top: 20px;
+  color:darkslategray;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+footer a {
+  color:inherit;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top:6px;
+  display: flex;
+  justify-content: space-evenly;
+  justify-items: center;
+  align-items: center;
+  font-size: 32px;
+  height: 80px;
+}
+i:hover {
+  cursor: pointer;
+  color: rgb(69, 114, 114);
 }

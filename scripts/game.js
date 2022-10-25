@@ -138,8 +138,8 @@ const resetPosition = (playerChoice, computerChoice) => {
 }
 
 const resetClass = (playerChoice, computerChoice) => {
-    playerChoice.className = "choice";
-    computerChoice.className = "choice";
+    playerChoice.className = "player-choice";
+    computerChoice.className = "computer-choice";
 }
 
 let animate = (playerChoice, computerChoice) => {

@@ -5,28 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" type = "text/css" href = "../css/styles.css">
+    <script src="https://kit.fontawesome.com/01b577ec3a.js" crossorigin="anonymous"></script>
     <script src="../scripts/game.js" defer></script>
+    <script src="../scripts/index.js" defer></script>
     <title>Jo Ken Po</title>
 </head>
 <body>
     <header>
-        <span id="header-text">JoKenPo</span>
+        <span id="header-text">Jo Ken Po</span>
         <nav>
             <ul>
+                <!--
                 <li>
-                    <button>
-                        Rules
-                    </button>
+                    <a href="#" target="_blank">Rules</a>
                 </li>
+                -->
                 <li>
-                    <button>
-                        Source
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        About
-                    </button>
+                    <a href="#about">About</a>
                 </li>
             </ul>
         </nav>
@@ -43,15 +38,15 @@
             <div class="options-div" id="computer-choices-div">
                 <h2>Machine</h2>
                 <div class="figures-div">
-                    <figure class="choice" id="computer-choice-paper">
+                    <figure class="computer-choice" id="computer-choice-paper">
                         <img src="../css/imgs/paper_emoji.png"/>
                     </figure>
     
-                    <figure class="choice" id="computer-choice-rock">
+                    <figure class="computer-choice" id="computer-choice-rock">
                         <img src="../css/imgs/rock_emoji.png"/>
                     </figure>
     
-                    <figure class="choice" id="computer-choice-scissors">
+                    <figure class="computer-choice" id="computer-choice-scissors">
                         <img src="../css/imgs/scissors_emoji.png"/>
                     </figure>
                 </div>
@@ -61,27 +56,45 @@
             </div>
             <div class="options-div" id="player-choices-div">
                 <div class="figures-div">
-                    <figure class="choice" id="player-choice-paper">
+                    <figure class="player-choice" id="player-choice-paper">
                         <img src="../css/imgs/paper_emoji.png"/>
                         <figcaption>Paper</figcaption>
                     </figure>
     
-                    <figure class="choice" id="player-choice-rock">
+                    <figure class="player-choice" id="player-choice-rock">
                         <img src="../css/imgs/rock_emoji.png"/>
                         <figcaption>Rock</figcaption>
                     </figure>
     
-                    <figure class="choice" id="player-choice-scissors">
+                    <figure class="player-choice" id="player-choice-scissors">
                         <img src="../css/imgs/scissors_emoji.png"/>
                         <figcaption>Scissors</figcaption>
                     </figure>
                 </div>
                 <h2>You</h2>
             </div>    
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <hr>
+            <p>
+                This is my solution for the 3rd assignment of the web development 
+                training program offered by Brainnest. For this assignment, I had 
+                to program a simple Jo Ken Po game (aka Rock & Paper & Scissors) 
+                in JavaScript.
+                <br>
+                <br>
+                You can also play a console version! Just type <code>Ctrl + Shift + I</code>
+                and type <code>game();</code>!
+            </p>
         </section> 
     </main>
     <footer>
-        
+        Vinícius Souza © 2022
+        <ul>
+            <li><a href="https://github.com/v1n1c1u" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/vin%C3%ADcius-souza-a108a6201/" target="_blank"><i class="fa-brands fa-linkedin"></a></i></li>
+        </ul>
     </footer>
 </body>
 </html>
