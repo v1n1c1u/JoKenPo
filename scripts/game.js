@@ -16,84 +16,91 @@ const SCISSORS = "scissors",
 
 
 paperChoice.addEventListener("click", ()=> {
-    let computerChoice = computerPlay();
-    let result;
-    switch(computerChoice){
-        case ROCK:
-            choosenOne(computerRockChoice);
-            computerChoice = computerRockChoice;
-            result = VICTORY;
-            break;
-        case SCISSORS:
-            choosenOne(computerScissorsChoice);
-            computerChoice = computerScissorsChoice;
-            result = LOSS;
-            break;
-        default:
-            choosenOne(computerPaperChoice);
-            computerChoice = computerPaperChoice;
-            result = TIE;
-            break;
+    if(optionIsEnabled(paperChoice)){
+        let computerChoice = computerPlay();
+        let result;
+        switch(computerChoice){
+            case ROCK:
+                choosenOne(computerRockChoice);
+                computerChoice = computerRockChoice;
+                result = VICTORY;
+                break;
+            case SCISSORS:
+                choosenOne(computerScissorsChoice);
+                computerChoice = computerScissorsChoice;
+                result = LOSS;
+                break;
+            default:
+                choosenOne(computerPaperChoice);
+                computerChoice = computerPaperChoice;
+                result = TIE;
+                break;
+        }
+        choosenOne(paperChoice);
+        disableOptions();
+        animate(paperChoice, computerChoice);
+        gameResult.innerText = result;
+        setTimeout(function(){reset(paperChoice, computerChoice)},2000);
     }
-    choosenOne(paperChoice);
-    disableOptions();
-    animate(paperChoice, computerChoice);
-    gameResult.innerText = result;
-    setTimeout(function(){reset(paperChoice, computerChoice)},2000);
+    
 });
 scissorsChoice.addEventListener("click", ()=> {
-    let computerChoice = computerPlay();
-    let result;
+    if(optionIsEnabled(scissorsChoice)){
+        let computerChoice = computerPlay();
+        let result;
 
-    switch(computerChoice){
-        case ROCK:
-            choosenOne(computerRockChoice);
-            computerChoice = computerRockChoice;
-            result = LOSS;
-            break;
-        case SCISSORS:
-            choosenOne(computerScissorsChoice);
-            computerChoice = computerScissorsChoice;
-            result = TIE;
-            break;
-        default:
-            choosenOne(computerPaperChoice);
-            computerChoice = computerPaperChoice;
-            result = VICTORY;
-            break;
+        switch(computerChoice){
+            case ROCK:
+                choosenOne(computerRockChoice);
+                computerChoice = computerRockChoice;
+                result = LOSS;
+                break;
+            case SCISSORS:
+                choosenOne(computerScissorsChoice);
+                computerChoice = computerScissorsChoice;
+                result = TIE;
+                break;
+            default:
+                choosenOne(computerPaperChoice);
+                computerChoice = computerPaperChoice;
+                result = VICTORY;
+                break;
+        }
+        choosenOne(scissorsChoice);
+        disableOptions();
+        animate(scissorsChoice, computerChoice);
+        gameResult.innerText = result;
+        setTimeout(function(){reset(scissorsChoice, computerChoice)},2000);
     }
-    choosenOne(scissorsChoice);
-    disableOptions();
-    animate(scissorsChoice, computerChoice);
-    gameResult.innerText = result;
-    setTimeout(function(){reset(scissorsChoice, computerChoice)},2000);
 });
 rockChoice.addEventListener("click", ()=> {
-    let computerChoice = computerPlay();
-    let result;
+    if(optionIsEnabled(rockChoice)){
+        let computerChoice = computerPlay();
+        let result;
 
-    switch(computerChoice){
-        case ROCK:
-            choosenOne(computerRockChoice);
-            computerChoice = computerRockChoice;
-            result = TIE;
-            break;
-        case SCISSORS:
-            choosenOne(computerScissorsChoice);
-            computerChoice = computerScissorsChoice;
-            result = VICTORY;
-            break;
-        default:
-            choosenOne(computerPaperChoice);
-            computerChoice = computerPaperChoice;
-            result = LOSS;
-            break;
+        switch(computerChoice){
+            case ROCK:
+                choosenOne(computerRockChoice);
+                computerChoice = computerRockChoice;
+                result = TIE;
+                break;
+            case SCISSORS:
+                choosenOne(computerScissorsChoice);
+                computerChoice = computerScissorsChoice;
+                result = VICTORY;
+                break;
+            default:
+                choosenOne(computerPaperChoice);
+                computerChoice = computerPaperChoice;
+                result = LOSS;
+                break;
+        }
+        choosenOne(rockChoice);
+        disableOptions();
+        animate(rockChoice, computerChoice);
+        gameResult.innerText = result;
+        setTimeout(function(){reset(rockChoice, computerChoice)},2000);
     }
-    choosenOne(rockChoice);
-    disableOptions();
-    animate(rockChoice, computerChoice);
-    gameResult.innerText = result;
-    setTimeout(function(){reset(rockChoice, computerChoice)},2000);
 });
 const computerPlay = () => {
     let randomNumber = Math.floor(Math.random()*3)+1;
@@ -109,6 +116,10 @@ const computerPlay = () => {
 const choosenOne = (element) => {
     element.firstElementChild.style.opacity = "1";
     element.firstElementChild.style.width = "115px";
+}
+
+const optionIsEnabled = (option) => {
+    return option.className === 'player-choice';
 }
 
 const disableOptions = () => {

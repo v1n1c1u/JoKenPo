@@ -179,9 +179,9 @@ figure img {
   transform: rotate(180deg) !important;
 }
 .player-choice img:hover {
-  cursor:pointer;
-  width: 115px;
-  opacity: 1;
+  cursor:pointer !important;
+  width: 115px !important;
+  opacity: 1 !important;
 }
 .player-choice img:hover + figcaption{
   display: block;
