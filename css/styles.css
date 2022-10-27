@@ -79,7 +79,7 @@ main {
   margin: 120px auto 120px auto;
 }
 #game-options{
-  display: none;
+  display: flex;
   justify-content: space-between;
   border-bottom-style: solid;
   border-color: inherit;
@@ -195,6 +195,7 @@ figure img {
   font-weight: bold;
   align-content: center;
   text-align: center;
+  font-size: 24px;
 }
 .game-buttons{
   width:100px;
@@ -203,18 +204,27 @@ figure img {
 }
 #restart-button{
   color:white;
-  background-color: green;
-  border-color: darkolivegreen;
+  background-color: inherit;
+  border-style:none;
+}
+#restart-button:hover{
+  cursor: pointer;
+  border-style: solid;
+  border-color: rgb(191, 216, 148);
 }
 #quit-button{
-  background-color:crimson;
-  color: white;
+  display: block;
+  background-color:inherit;
+  border-style: none;
 }
-#round-text{
+#round-span{
   text-transform: uppercase;
   font-weight: bold;
   color:darkgreen;
   font-size: 24px;
+}
+.score {
+  font-weight: lighter;
 }
 footer{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

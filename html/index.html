@@ -25,11 +25,11 @@
     <main>
         <section id="gameboard">
             <div id="game-options">
-                <button class="game-buttons" id="restart-button">Restart</button>
-                <span class="score-span">You (0)</span>
-                <span id="round-text">Round 1</span>
-                <span class="score-span">Machine (0)</span>
-                <button class="game-buttons" id="quit-button">Quit</button>
+                <button title="restart" class="game-buttons" id="restart-button"><i class="fa-solid fa-rotate"></i></button>
+                <span class="score-span">You - <span class="score" id="player-score">0</span></span>
+                <span id="round-span">Round <span id="round-text">1</span></span>
+                <span class="score-span">Machine - <span class="score" id="computer-score">0</span></span>
+                <button class="game-buttons" id="quit-button"></button>
             </div>
             <div class="options-div" id="computer-choices-div">
                 <h2>Machine</h2>

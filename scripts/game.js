@@ -12,8 +12,15 @@ const SCISSORS = "scissors",
       computerPaperChoice = document.getElementById("computer-choice-paper"),
       computerScissorsChoice = document.getElementById("computer-choice-scissors"),
       computerRockChoice = document.getElementById("computer-choice-rock"),
-      gameResult = document.getElementById("result");
+      gameResult = document.getElementById("result"),
+      playerScore = document.getElementById("player-score"),
+      computerScore = document.getElementById("computer-score"),
+      roundCounter = document.getElementById("round-text"),
+      restartButton = document.getElementById("restart-button");
 
+let round = 1,
+    computerWins = 0,
+    playerWins = 0;
 
 paperChoice.addEventListener("click", ()=> {
     if(optionIsEnabled(paperChoice)){
@@ -24,10 +31,12 @@ paperChoice.addEventListener("click", ()=> {
                 choosenOne(computerRockChoice);
                 computerChoice = computerRockChoice;
                 result = VICTORY;
+                playerWins++;
                 break;
             case SCISSORS:
                 choosenOne(computerScissorsChoice);
                 computerChoice = computerScissorsChoice;
+                computerWins++;
                 result = LOSS;
                 break;
             default:
@@ -40,6 +49,7 @@ paperChoice.addEventListener("click", ()=> {
         disableOptions();
         animate(paperChoice, computerChoice);
         gameResult.innerText = result;
+        round++;
         setTimeout(function(){reset(paperChoice, computerChoice)},2000);
     }
     
@@ -54,6 +64,7 @@ scissorsChoice.addEventListener("click", ()=> {
                 choosenOne(computerRockChoice);
                 computerChoice = computerRockChoice;
                 result = LOSS;
+                computerWins++;
                 break;
             case SCISSORS:
                 choosenOne(computerScissorsChoice);
@@ -64,12 +75,14 @@ scissorsChoice.addEventListener("click", ()=> {
                 choosenOne(computerPaperChoice);
                 computerChoice = computerPaperChoice;
                 result = VICTORY;
+                playerWins++;
                 break;
         }
         choosenOne(scissorsChoice);
         disableOptions();
         animate(scissorsChoice, computerChoice);
         gameResult.innerText = result;
+        round++;
         setTimeout(function(){reset(scissorsChoice, computerChoice)},2000);
     }
 });
@@ -88,20 +101,28 @@ rockChoice.addEventListener("click", ()=> {
                 choosenOne(computerScissorsChoice);
                 computerChoice = computerScissorsChoice;
                 result = VICTORY;
+                playerWins++;
                 break;
             default:
                 choosenOne(computerPaperChoice);
                 computerChoice = computerPaperChoice;
                 result = LOSS;
+                computerWins++;
                 break;
         }
         choosenOne(rockChoice);
         disableOptions();
         animate(rockChoice, computerChoice);
         gameResult.innerText = result;
+        round++;
         setTimeout(function(){reset(rockChoice, computerChoice)},2000);
     }
 });
+
+restartButton.addEventListener("click", ()=> {
+    resetCounters();
+    updateScoresAndRound();
+})
 const computerPlay = () => {
     let randomNumber = Math.floor(Math.random()*3)+1;
     switch(randomNumber){
@@ -139,6 +160,20 @@ const reset = (playerChoice, computerChoice) => {
     enableOptions();
     resetSize(playerChoice, computerChoice);
     resetPosition(playerChoice, computerChoice);
+    updateScoresAndRound();
+}
+
+const updateScoresAndRound = () => {
+    playerScore.innerText = playerWins;
+    computerScore.innerText = computerWins;
+    roundCounter.innerText = round;
+}
+
+const resetCounters = () => {
+    playerWins = 0;
+    computerWins = 0;
+    round = 1;
+    updateScoresAndRound();
 }
 
 const resetOpacity = (playerChoice, computerChoice) => {
