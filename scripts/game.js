@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
 const SCISSORS = "scissors",
       ROCK = "rock",
       PAPER = "paper",
+      VICTORY = "You Win!",
+      LOSS = "You Lose!",
+      TIE = "It's  a  tie!",
       paperChoice = document.getElementById("player-choice-paper"),
       scissorsChoice = document.getElementById("player-choice-scissors"),
       rockChoice = document.getElementById("player-choice-rock"),
@@ -11,34 +14,29 @@ const SCISSORS = "scissors",
       computerRockChoice = document.getElementById("computer-choice-rock"),
       gameResult = document.getElementById("result");
 
-    let computerWins = 0,
-    playerWins = 0;
 
 paperChoice.addEventListener("click", ()=> {
     let computerChoice = computerPlay();
     let result;
     switch(computerChoice){
         case ROCK:
-            computerRockChoice.firstElementChild.style.opacity = "1";
-            computerRockChoice.firstElementChild.style.width = "115px";
+            choosenOne(computerRockChoice);
             computerChoice = computerRockChoice;
-            result = ("You Win!");
+            result = VICTORY;
             break;
         case SCISSORS:
-            computerScissorsChoice.firstElementChild.style.opacity = "1";
-            computerScissorsChoice.firstElementChild.style.width = "115px";
+            choosenOne(computerScissorsChoice);
             computerChoice = computerScissorsChoice;
-            result = ("You Lose!");
+            result = LOSS;
             break;
         default:
-            computerPaperChoice.firstElementChild.style.opacity = "1";
-            computerPaperChoice.firstElementChild.style.width = "115px";
+            choosenOne(computerPaperChoice);
             computerChoice = computerPaperChoice;
-            result = ("It's  a  tie!");
+            result = TIE;
             break;
     }
-    paperChoice.firstElementChild.style.opacity = "1";
-    paperChoice.firstElementChild.style.width = "115px";
+    choosenOne(paperChoice);
+    disableOtherOptions();
     animate(paperChoice, computerChoice);
     gameResult.innerText = result;
     setTimeout(function(){reset(paperChoice, computerChoice)},2000);
@@ -49,26 +47,23 @@ scissorsChoice.addEventListener("click", ()=> {
 
     switch(computerChoice){
         case ROCK:
-            computerRockChoice.firstElementChild.style.opacity = "1";
-            computerRockChoice.firstElementChild.style.width = "115px";
+            choosenOne(computerRockChoice);
             computerChoice = computerRockChoice;
-            result = ("You Lose!");
+            result = LOSS;
             break;
         case SCISSORS:
-            computerScissorsChoice.firstElementChild.style.opacity = "1";
-            computerScissorsChoice.firstElementChild.style.width = "115px";
+            choosenOne(computerScissorsChoice);
             computerChoice = computerScissorsChoice;
-            result = ("It's  a  tie!");
+            result = TIE;
             break;
         default:
-            computerPaperChoice.firstElementChild.style.opacity = "1";
-            computerPaperChoice.firstElementChild.style.width = "115px";
+            choosenOne(computerPaperChoice);
             computerChoice = computerPaperChoice;
-            result = ("You Win!");
+            result = VICTORY;
             break;
     }
-    scissorsChoice.firstElementChild.style.opacity = "1";
-    scissorsChoice.firstElementChild.style.width = "115px";
+    choosenOne(scissorsChoice);
+    disableOtherOptions();
     animate(scissorsChoice, computerChoice);
     gameResult.innerText = result;
     setTimeout(function(){reset(scissorsChoice, computerChoice)},2000);
@@ -79,26 +74,23 @@ rockChoice.addEventListener("click", ()=> {
 
     switch(computerChoice){
         case ROCK:
-            computerRockChoice.firstElementChild.style.opacity = "1";
-            computerRockChoice.firstElementChild.style.width = "115px";
+            choosenOne(computerRockChoice);
             computerChoice = computerRockChoice;
-            result = ("It's  a  tie!");
+            result = TIE;
             break;
         case SCISSORS:
-            computerScissorsChoice.firstElementChild.style.opacity = "1";
-            computerScissorsChoice.firstElementChild.style.width = "115px";
+            choosenOne(computerScissorsChoice);
             computerChoice = computerScissorsChoice;
-            result = ("You Win!");
+            result = VICTORY;
             break;
         default:
-            computerPaperChoice.firstElementChild.style.opacity = "1";
-            computerPaperChoice.firstElementChild.style.width = "115px";
+            choosenOne(computerPaperChoice);
             computerChoice = computerPaperChoice;
-            result = ("You Lose!");
+            result = LOSS;
             break;
     }
-    rockChoice.firstElementChild.style.opacity = "1";
-    rockChoice.firstElementChild.style.width = "115px";
+    choosenOne(rockChoice);
+    disableOtherOptions();
     animate(rockChoice, computerChoice);
     gameResult.innerText = result;
     setTimeout(function(){reset(rockChoice, computerChoice)},2000);
@@ -114,11 +106,26 @@ const computerPlay = () => {
             return PAPER;
     }
 }
+const choosenOne = (element) => {
+    element.firstElementChild.style.opacity = "1";
+    element.firstElementChild.style.width = "115px";
+}
+
+const disableOtherOptions = () => {
+    rockChoice.className = "disabled-option";
+    scissorsChoice.className = "disabled-option";
+    paperChoice.className = "disabled-option";
+}
+const enableOptions = () => {
+    rockChoice.className = "player-choice";
+    scissorsChoice.className = "player-choice";
+    paperChoice.className = "player-choice";
+}
 const reset = (playerChoice, computerChoice) => {
-    console.log("reset");
     gameResult.innerText = '';
     resetOpacity(playerChoice, computerChoice);
     resetClass(playerChoice, computerChoice);
+    enableOptions();
     resetSize(playerChoice, computerChoice);
     resetPosition(playerChoice, computerChoice);
 }

@@ -124,7 +124,7 @@ li a:hover {
   font-size: 32px;
 }
 #result-div{
-  min-height: 80px;
+  min-height: 90px;
   font-size: 65px;
   color:rgb(63, 80, 35);
 }
@@ -137,16 +137,17 @@ li a:hover {
 }
 @keyframes moveUp {
   0%   {bottom:0px;}
-  10% {bottom:50px;}
-  100%{bottom:50x;}
+  10% {bottom:70px;}
+  100%{bottom:70x;}
 }
 @keyframes moveDown {
   0%   {top:0px;}
-  10% {top:50px;}
-  100%{top:50x;}
+  10% {top:20px;}
+  100%{top:20x;}
   
 }
 .computerChoiceAnimated {
+  transform: rotate(180deg) !important;
   position: relative;
   -webkit-animation: moveDown 5s 1  normal ease-out;
   animation-name: moveDown;
@@ -162,6 +163,7 @@ figure{
   width: 160px;
   color:green;
   text-align: center;
+  margin-bottom: 0;
 }
 figcaption{
   display: none;
@@ -173,7 +175,7 @@ figure img {
   width: 110px;
   opacity: 0.5;
 }
-.player-choice img{
+.computer-choice img{
   transform: rotate(180deg) !important;
 }
 .player-choice img:hover {
@@ -181,10 +183,13 @@ figure img {
   width: 115px;
   opacity: 1;
 }
-
 .player-choice img:hover + figcaption{
   display: block;
 }
+.disabled-option figcaption {
+  display: none;
+}
+
 .score-span{
   color:darkolivegreen;
   font-weight: bold;
@@ -218,7 +223,7 @@ footer{
   text-transform: uppercase;
   margin: 0%;
   margin-top: 20px;
-  color:darkslategray;
+  color:darkolivegreen;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -243,5 +248,5 @@ footer ul {
 }
 i:hover {
   cursor: pointer;
-  color: rgb(69, 114, 114);
+  color: darkgreen;
 }
