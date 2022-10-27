@@ -79,7 +79,7 @@ main {
   margin: 120px auto 120px auto;
 }
 #game-options{
-  display: none; /*none;*/
+  display: none;
   justify-content: space-between;
   border-bottom-style: solid;
   border-color: inherit;

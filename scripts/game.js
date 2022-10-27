@@ -36,7 +36,7 @@ paperChoice.addEventListener("click", ()=> {
             break;
     }
     choosenOne(paperChoice);
-    disableOtherOptions();
+    disableOptions();
     animate(paperChoice, computerChoice);
     gameResult.innerText = result;
     setTimeout(function(){reset(paperChoice, computerChoice)},2000);
@@ -63,7 +63,7 @@ scissorsChoice.addEventListener("click", ()=> {
             break;
     }
     choosenOne(scissorsChoice);
-    disableOtherOptions();
+    disableOptions();
     animate(scissorsChoice, computerChoice);
     gameResult.innerText = result;
     setTimeout(function(){reset(scissorsChoice, computerChoice)},2000);
@@ -90,7 +90,7 @@ rockChoice.addEventListener("click", ()=> {
             break;
     }
     choosenOne(rockChoice);
-    disableOtherOptions();
+    disableOptions();
     animate(rockChoice, computerChoice);
     gameResult.innerText = result;
     setTimeout(function(){reset(rockChoice, computerChoice)},2000);
@@ -111,7 +111,7 @@ const choosenOne = (element) => {
     element.firstElementChild.style.width = "115px";
 }
 
-const disableOtherOptions = () => {
+const disableOptions = () => {
     rockChoice.className = "disabled-option";
     scissorsChoice.className = "disabled-option";
     paperChoice.className = "disabled-option";
